@@ -27,10 +27,11 @@ function sendywpcf_init() {
 }
 
 /**
-* @param mixed $args Array or string
-*
-* @return string Checkbox HTML markup to embed into form
-*/
+ * Creates a hidden input with the sendy list id
+ * 
+ * @param mixed $args Array or string
+ * @return string Hidden input with Sendy list id
+ */
 function get_list_id($args=[]) {
 
 	if (!isset($args['values'][0])) {
@@ -42,9 +43,10 @@ function get_list_id($args=[]) {
 }
 
 /**
-* Subscribe from WPCF Forms after the email has been sent
-*
-* @param array $args
+ * Subscribe from WPCF Forms after the email has been sent
+ *
+ * @param array $args
+ * @return mixed
 */
 function subscribe_from_cf7($args=null) {
 
@@ -71,7 +73,7 @@ function subscribe_from_cf7($args=null) {
 		$result = file_get_contents($sendyUrl, false, $context);
 
 		if (!$result) {
-			throw new Exception("There was a probleming adding you to the BETA list!");
+			throw new Exception("There was a probleming adding you to the mailing list");
 		}
 
 	} catch (Exception $e) {
