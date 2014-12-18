@@ -3,6 +3,10 @@ Sendy-WPCF
 
 Sendy integration for WP Contact Form 7 (https://wordpress.org/plugins/contact-form-7/) that we use for Awesome Presentation (awesome-presentation.com). Because the other plugins were featureless, complicated and mostly people use the Contact Form plugin anyway.
 
+Just change the line to your Sendy location:
+
+```$sendyUrl = "http://www.yoursendy.com/subscribe";``
+
 It's pretty easy and automatic. All you need to do is use the Contact Form 7 to build you form like so:
 
 ```
