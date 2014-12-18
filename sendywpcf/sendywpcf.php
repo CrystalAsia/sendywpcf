@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Plugin Name: Sendy WPCF7
  * Description: Sendy integration with WP Contact Form 7
@@ -32,7 +32,7 @@ function sendywpcf_init() {
  * @param mixed $args Array or string
  * @return string Hidden input with Sendy list id
  */
-function get_list_id($args=[]) {
+function get_list_id($args) {
 
 	if (!isset($args['values'][0])) {
 		return false;
@@ -58,17 +58,17 @@ function subscribe_from_cf7($args=null) {
 			throw new Exception("Missing sendy_list_id");
 		}
 
-		$postdata = http_build_query([
+		$postdata = http_build_query(array(
 			'name' => $_POST['name'],
 			'email' => $_POST['email'],
 			'list' => $_POST['sendy_list_id'],
 			'boolean' => 'true'
-		]);
-		$opts = ['http' => [
+		));
+		$opts = array('http' => array(
 			'method'  => 'POST',
 			'header'  => 'Content-type: application/x-www-form-urlencoded',
 			'content' => $postdata
-		]];
+		));
 		$context  = stream_context_create($opts);
 		$result = file_get_contents($sendyUrl, false, $context);
 
